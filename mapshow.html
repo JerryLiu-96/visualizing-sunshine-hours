@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Add an icon to the map</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<script>
+    //the font size of the years
+    const textSize = 60;
+
+    const text = {
+            'type': 'FeatureCollection',
+            'features': [
+                {
+                    'type': 'Feature',
+                    'properties': {
+                        'description': "Average Sunshine Hours by month in U.S. cities",
+                    },
+                    'geometry':{
+                        'type': 'Point',
+                        'coordinates': [-70.6625784, 53.8722077] 
+                    }
+                },
+                
+            ]
+                
+            };
+	// TO MAKE THE MAP APPEAR YOU MUST
+	// ADD YOUR ACCESS TOKEN FROM
+	// https://account.mapbox.com
+	mapboxgl.accessToken = 'pk.eyJ1IjoiemxpdTk2IiwiYSI6ImNsMnI3ZWNkcDA0bmwzYnFzcmxnbG9rejMifQ.KS1NO7CgxL3hJi94lTgidQ';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/mapbox/dark-v11', // style URL
+        zoom: 4.5, // starting zoom
+        center: [-98.583333, 39.833333] // starting position, geographical center of the continental US
+    });
+
+    map.on('load', () => {
+        // Load an image from an external URL.
+        map.loadImage(
+            //'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
+            'img/output_chi.png',
+            (error, image) => {
+                if (error) throw error;
+
+                // Add the image to the map style.
+                map.addImage('cat', image);
+
+                // Add a data source containing one point feature.
+                map.addSource('point1', {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [
+                            {
+                                'type': 'Feature',
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [-87.623177,	43.881832]
+                                }
+                            }
+                        ]
+                    }
+                });
+
+                // Add a layer to use the image to represent the data.
+                map.addLayer({
+                    'id': 'points1',
+                    'type': 'symbol',
+                    'source': 'point1', // reference the data source
+                    'layout': {
+                        'icon-image': 'cat', // reference the image
+                        'icon-size': 0.2
+                    }
+                });
+            }
+        );
+
+        map.loadImage(
+            //'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
+            'img/output_hou.png',
+            (error, image2) => {
+                if (error) throw error;
+
+                // Add the image to the map style.
+                map.addImage('hou', image2);
+
+                // Add a data source containing one point feature.
+                map.addSource('point2', {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [
+                            {
+                                'type': 'Feature',
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [-95.358421,	30.749907]
+                                }
+                            }
+                        ]
+                    }
+                });
+
+                // Add a layer to use the image to represent the data.
+                map.addLayer({
+                    'id': 'points2',
+                    'type': 'symbol',
+                    'source': 'point2', // reference the data source
+                    'layout': {
+                        'icon-image': 'hou', // reference the image
+                        'icon-size': 0.2
+                    }
+                });
+            }
+        );
+
+
+        map.loadImage(
+            //'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
+            'img/output_mia.png',
+            (error, image3) => {
+                if (error) throw error;
+
+                // Add the image to the map style.
+                map.addImage('mia', image3);
+
+                // Add a data source containing one point feature.
+                map.addSource('point3', {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [
+                            {
+                                'type': 'Feature',
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [-80.191788,	25.761681]
+                                }
+                            }
+                        ]
+                    }
+                });
+
+                // Add a layer to use the image to represent the data.
+                map.addLayer({
+                    'id': 'points3',
+                    'type': 'symbol',
+                    'source': 'point3', // reference the data source
+                    'layout': {
+                        'icon-image': 'mia', // reference the image
+                        'icon-size': 0.2
+                    }
+                });
+            }
+        );
+
+
+        map.loadImage(
+            //'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
+            'img/output_ny.png',
+            (error, image4) => {
+                if (error) throw error;
+
+                // Add the image to the map style.
+                map.addImage('ny', image4);
+
+                // Add a data source containing one point feature.
+                map.addSource('point4', {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [
+                            {
+                                'type': 'Feature',
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [-68.935242,	40.73061]
+                                }
+                            }
+                        ]
+                    }
+                });
+
+                // Add a layer to use the image to represent the data.
+                map.addLayer({
+                    'id': 'points4',
+                    'type': 'symbol',
+                    'source': 'point4', // reference the data source
+                    'layout': {
+                        'icon-image': 'ny', // reference the image
+                        'icon-size': 0.2
+                    }
+                });
+            }
+        );
+
+        map.loadImage(
+            //'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
+            'img/output_sf.png',
+            (error, image5) => {
+                if (error) throw error;
+
+                // Add the image to the map style.
+                map.addImage('sf', image5);
+
+                // Add a data source containing one point feature.
+                map.addSource('point5', {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [
+                            {
+                                'type': 'Feature',
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [-127.446747, 36.733795]
+                                }
+                            }
+                        ]
+                    }
+                });
+
+                // Add a layer to use the image to represent the data.
+                map.addLayer({
+                    'id': 'points5',
+                    'type': 'symbol',
+                    'source': 'point5', // reference the data source
+                    'layout': {
+                        'icon-image': 'sf', // reference the image
+                        'icon-size': 0.2
+                    }
+                });
+            }
+        );
+
+        map.loadImage(
+            //'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
+            'img/output_sea.png',
+            (error, image6) => {
+                if (error) throw error;
+
+                // Add the image to the map style.
+                map.addImage('sea', image6);
+
+                // Add a data source containing one point feature.
+                map.addSource('point6', {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [
+                            {
+                                'type': 'Feature',
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [-129.335167,46.208013]
+                                }
+                            }
+                        ]
+                    }
+                });
+
+                // Add a layer to use the image to represent the data.
+                map.addLayer({
+                    'id': 'points6',
+                    'type': 'symbol',
+                    'source': 'point6', // reference the data source
+                    'layout': {
+                        'icon-image': 'sea', // reference the image
+                        'icon-size': 0.2
+                    }
+                });
+            }
+        );
+
+        map.addSource('title', {
+                        'type': 'geojson',
+                        'data': text
+                    });
+
+        map.addLayer({
+            'id': 'title',
+            'type': 'symbol',
+            'source': 'title',
+            'layout':{
+                'text-field': ['get', 'description'],
+                'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+                'text-radial-offset': 0.5,
+                'text-justify': 'left',
+                'text-size':textSize,
+                'text-max-width': 30,
+                'visibility':'visible'
+            },
+            'paint':{
+                'text-color': "#FFFFFF"
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
