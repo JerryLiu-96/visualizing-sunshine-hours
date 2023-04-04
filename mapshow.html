@@ -9,10 +9,20 @@
 <style>
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+img {
+        position: absolute;
+        bottom: 45px;
+        left: 65px;
+        width: 500px;
+        
+        z-index: 9999;
+    }
 </style>
 </head>
 <body>
 <div id="map"></div>
+<img src="img/output_compare.png" id="image-overlay">
 
 <script>
     //the font size of the years
@@ -82,7 +92,7 @@ body { margin: 0; padding: 0; }
                     'source': 'point1', // reference the data source
                     'layout': {
                         'icon-image': 'cat', // reference the image
-                        'icon-size': 0.2
+                        'icon-size': 0.23
                     }
                 });
             }
@@ -121,7 +131,7 @@ body { margin: 0; padding: 0; }
                     'source': 'point2', // reference the data source
                     'layout': {
                         'icon-image': 'hou', // reference the image
-                        'icon-size': 0.2
+                        'icon-size': 0.23
                     }
                 });
             }
@@ -161,7 +171,7 @@ body { margin: 0; padding: 0; }
                     'source': 'point3', // reference the data source
                     'layout': {
                         'icon-image': 'mia', // reference the image
-                        'icon-size': 0.2
+                        'icon-size': 0.23
                     }
                 });
             }
@@ -201,7 +211,7 @@ body { margin: 0; padding: 0; }
                     'source': 'point4', // reference the data source
                     'layout': {
                         'icon-image': 'ny', // reference the image
-                        'icon-size': 0.2
+                        'icon-size': 0.23
                     }
                 });
             }
@@ -240,7 +250,7 @@ body { margin: 0; padding: 0; }
                     'source': 'point5', // reference the data source
                     'layout': {
                         'icon-image': 'sf', // reference the image
-                        'icon-size': 0.2
+                        'icon-size': 0.23
                     }
                 });
             }
@@ -279,7 +289,7 @@ body { margin: 0; padding: 0; }
                     'source': 'point6', // reference the data source
                     'layout': {
                         'icon-image': 'sea', // reference the image
-                        'icon-size': 0.2
+                        'icon-size': 0.23
                     }
                 });
             }
